@@ -1,0 +1,8 @@
+# dsh-session-link bundle patch
+#
+# Mounts the session-link plugin row. The client half (registered via the
+# package's dsh.client manifest) provides the copy-link header action and the
+# ?session=<id> open-by-link behavior.
+- insert:
+    - id: session-link
+      name: 'dsh-session-link'
