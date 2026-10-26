@@ -1,6 +1,6 @@
 {
   "name": "dsh-session-link",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "DSH web plugin: copy a deep link to the current session (URL carries the session id) and open a session directly via ?session=<id>.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,24 +27,31 @@
     },
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-runtime",
-        "@deepseek-ai/dsh-client-ui-slots",
-        "@deepseek-ai/dsh-client-ui-conversation"
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-workspace"
       ],
       "platform": "web"
     }
   },
+  "engines": {
+    "dsh": "^0.2.0-rc.2"
+  },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json",
-    "build": "tsc -p tsconfig.json && tsdown"
+    "build": "tsc -p tsconfig.json && tsdown",
+    "test": "node tests/client.mjs"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-client-ui-conversation": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-ui-workspace": "^0.2.0-rc.2",
     "react": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.7",
     "react": "^18.2.0",
+    "react-dom": "^18.3.1",
     "tsdown": "^0.22.2",
     "typescript": "^5.6.0"
   }
